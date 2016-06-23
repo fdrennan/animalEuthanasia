@@ -10,4 +10,4 @@ str(train)
 
 euthanized_pets <- subset(train, OutcomeType == "Euthanasia")
 
-
+head(euthanized_pets)
