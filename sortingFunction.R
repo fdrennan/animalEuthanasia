@@ -36,8 +36,15 @@ sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column nu
   # Add weights from frequency table to weight column in unsortedDataFrame
   # Re-initialize counter
   
+  # Indicator variable for unsortedDataFrame rows
   i <- 1
+  
+  # Indicator variable for frequencyTable rows
   n <- 1
+  
+  # Indicator variable for unsortedDataFrame columns
+  j <- 1
+  
   
   
   while(i <= length(unsortedDataFrame[,1])) {
