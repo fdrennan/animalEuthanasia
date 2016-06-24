@@ -39,11 +39,12 @@ sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column nu
   i <- 1
   n <- 1
   
+  
   while(i <= length(unsortedDataFrame[,1])) {
     
     
       if (unsortedDataFrame[i,1] == frequencyTable[n,1]) {
-      unsortedDataFrame$weight[i] <- frequencyTable[i,2] + unsortedDataFrame$weight[i]
+      unsortedDataFrame$weight[i] <- frequencyTable[n,2] + unsortedDataFrame$weight[i]
       i <- i + 1
       n <- 1
       }
@@ -51,10 +52,6 @@ sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column nu
         n <- n + 1
       }
     
-    
-    
-    
-      
   }
   
   
