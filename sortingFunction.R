@@ -1,3 +1,5 @@
+
+
 # Create sorting function
 
 sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column number which holds category to sort by", categoryName = "Name of category to sort by", columnNumbersBeSorted = "Rows to be sorted, list as vector i.e., c(4,5,7,9)") {
@@ -17,22 +19,53 @@ sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column nu
   i <- 1
   frequencyTable <- NULL
   
+  # Create a dataframe which holds number of each type of variable
+  
   while (i <= length(columnNumbersBeSorted)) {
         
-    frequencyTable[,i] <- as.data.frame(table(unsortedDataFrame[,i]))
+    frequencyTable <- rbind(as.data.frame(table(unsortedDataFrame[,i])), frequencyTable)
+   
     
     i <- i + 1
   }
   
-  return(frequencyTable)
+  # Initialize a weight column
+  
+  unsortedDataFrame$weight <- 0
+  
+  # Add weights from frequency table to weight column in unsortedDataFrame
+  # Re-initialize counter
+  
+  i <- 1
+  n <- 1
+  
+  while(i <= length(unsortedDataFrame[,1])) {
+    
+    
+      if (unsortedDataFrame[i,1] == frequencyTable[n,1]) {
+      unsortedDataFrame$weight[i] <- frequencyTable[i,2] + unsortedDataFrame$weight[i]
+      i <- i + 1
+      n <- 1
+      }
+      else if (unsortedDataFrame[i,1] != frequencyTable[n,1]) {
+        n <- n + 1
+      }
+    
+    
+    
+    
+      
+  }
+  
+  
+  return(unsortedDataFrame)
   
   
 }
 
 # Running sortit to test results
 
-stuff <- sortit(train, 4, "Euthanasia", c(5,6,7,8,9))
+unsorted <- sortit(train, 4, "Euthanasia", c(5,6,7,8,9))
 
-head(stuff)
-
+unsorted$weight
 
