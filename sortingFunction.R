@@ -1,3 +1,4 @@
+train <- read.csv("train.csv", stringsAsFactors = FALSE, sep = ",")
 
 
 # Create sorting function
