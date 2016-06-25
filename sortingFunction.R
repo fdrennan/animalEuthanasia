@@ -69,8 +69,9 @@ sortit <- function(dataFrame = "Where data is stored", columnNumber = "Column nu
 }
 
 # Running sortit to test results
+# Example: Use train dataset, find "Euthanasia" in the 4th column an sort by weights made for columns 5,6,7,8,9.
 
-sorted <- sortit(train, 4, "Euthanasia", c(5,6,7,8))
+euthanised <- sortit(train, 4, "Euthanasia", c(5,6,7,8,9))
 
-sorted
+
 

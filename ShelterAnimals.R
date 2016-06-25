@@ -7,7 +7,3 @@ train <- read.csv("train.csv", stringsAsFactors = FALSE, sep = ",")
 str(train)
 
 # Create a subset of euthanized dogs
-
-euthanized_pets <- subset(train, OutcomeType == "Euthanasia")
-
-head(euthanized_pets)
